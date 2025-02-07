@@ -7,9 +7,11 @@
     let currentPlayer = "X";
     let player1Choices = [];
     let player2Choices = [];
+    let player1Name = 'Player 1';
+    let player2Name = 'Player 2';
     let gameOver = false; // gameover flag
     let gameMessages = document.getElementById('game-messages');
-    gameMessages.textContent = "Enjoy!";
+    gameMessages.textContent = "TIC-TAC-TOE!!!";
 
     function handleTileClick(event) {
         if (gameOver) return; // prevents clicks if the game is over
@@ -30,14 +32,14 @@
         if (currentPlayer === "X") {
             player1Choices.push(tileIndex + 1);
             if (checkWin(player1Choices)) {
-                gameMessages.textContent = "Player 1 Wins!!";
+                gameMessages.textContent = `${player1Name} Wins!!`;
                 gameOver = true;
                 return;
             }
         } else {
             player2Choices.push(tileIndex + 1);
             if (checkWin(player2Choices)) {
-                gameMessages.textContent = "Player 2 Wins!!";
+                gameMessages.textContent = `${player2Name} Wins!!`;
                 gameOver = true;
                 return;
             }
@@ -142,7 +144,7 @@
             player1Choices = [];
             player2Choices = [];
             gameOver = false;
-            gameMessages.textContent = `Restarting game, Round ${gameCount}`;
+            gameMessages.textContent = `Round ${gameCount}`;
 
             const tiles = document.querySelectorAll('.tile');
             tiles.forEach(tile => {
@@ -150,6 +152,34 @@
             });
         });
     })();
+
+    //edit player names functionality
+    const editPlayerForm = document.getElementById('edit-player-form');
+    const editPlayerNames = document.getElementById('edit-player-names');
+    const cancel = document.getElementById('cancel');
+    const dialog = document.getElementById('dialog-window');
+
+    editPlayerNames.addEventListener("click", () => {
+        dialog.showModal();
+    });
+
+    cancel.addEventListener("click", () => {
+        dialog.close();
+        editPlayerForm.reset();
+    });
+
+    editPlayerForm.addEventListener('submit', (event) => {
+        event.preventDefault(); //prevents default form submission
+
+        const formData = new FormData(editPlayerForm);
+        player1Name = formData.get('player1Name') || "Player 1";
+        player2Name = formData.get('player2Name') || "Player 2";
+
+        dialog.close();
+        gameMessages.textContent = `${player1Name} vs ${player2Name}!`;
+
+    });
+
 
     //game start
     domManagement();

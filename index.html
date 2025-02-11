@@ -7,41 +7,49 @@
     <title>Tic-Tac-Toe</title>
 </head>
 <body>
-    <h1 id="game-messages"></h1>
-    <div id="game-board">
-
-    </div>
-
-    <div id="buttons-container">
-
-        <dialog id="dialog-window">
-            <form id="edit-player-form">
-                <div id="line-one">
-                    <div id="player1-name">
-                        <label for="player1-name">Player 1 name:</label>
-                        <input type="text" id="player1-name" name="player1Name" placeholder="Player 1" required>
-                    </div>
-                </div>
-
-                <div id="line-two">
-                    <div id="player2-name">
-                        <label for="player2-name">Player 2 name:</label>
-                        <input type="text" id="player2-name" name="player2Name" placeholder="Player 2" required>
-                    </div>
-                </div>
-
-                <div id="form-buttons-flex">
-                    <button type="submit" class="form-buttons" id="confirm-names">Confirm</button>
-                    <button type="button" class="form-buttons" id="cancel">Cancel</button>
-                </div>
-
-            </form>
-
-        </dialog>
-            <button id="edit-player-names">Edit player names</button>
+    <div id="content">
+        <div id="title">
+            <h1 id="game-messages"></h1>
+        </div>
+        <div id="game-board">
 
         </div>
 
+        <div id="buttons-container">
+
+            <dialog id="dialog-window">
+                <form id="edit-player-form">
+                    <div id="line-one">
+                        <div id="player1-name">
+                            <label for="player1-name">Player 1 name:</label>
+                            <input type="text" id="player1-name" name="player1Name" placeholder="Player 1" required>
+                        </div>
+                    </div>
+
+                    <div id="line-two">
+                        <div id="player2-name">
+                            <label for="player2-name">Player 2 name:</label>
+                            <input type="text" id="player2-name" name="player2Name" placeholder="Player 2" required>
+                        </div>
+                    </div>
+
+                    <div id="form-buttons-flex">
+                        <button type="submit" class="form-buttons" id="confirm-names">Confirm</button>
+                        <button type="button" class="form-buttons" id="cancel">Cancel</button>
+                    </div>
+
+                </form>
+
+            </dialog>
+                <button id="edit-player-names">Edit player names</button>
+
+            </div>
+            <div id="credits">
+                <div>Made by NickW16 </div> 
+                <a href="https://github.com/NickW16" id="github-link" target="_blank" rel="noopener noreferrer">    
+                <img src="github-mark-white.png" class="github-link" alt="github link">
+            </div>
+        </div>
     <script src="script.js"></script>
 </body>
 </html>
